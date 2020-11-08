@@ -17,10 +17,11 @@ on:
       - cron: 0 22 * * 1
   # release:
   #   types: [published]
-
+  watch:
+    types: [started]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     
     steps:
       - name: Checkout config
@@ -119,7 +120,7 @@ jobs:
           # cat >> .config <<EOF
           # CONFIG_PACKAGE_luci-app-aria2=m
           # CONFIG_PACKAGE_luci-app-baidupcs-web=m
-          # CONFIG_PACKAGE_luci-app-frpc=m
+           CONFIG_PACKAGE_luci-app-frpc=m
           # CONFIG_PACKAGE_luci-app-frps=m
           # CONFIG_PACKAGE_luci-app-kodexplorer=m
           # CONFIG_PACKAGE_luci-app-minidlna=m
@@ -138,7 +139,7 @@ jobs:
           # LuCI主题:
           # cat >> .config <<EOF
           # CONFIG_PACKAGE_luci-theme-bootstrap is not set
-          # CONFIG_PACKAGE_luci-theme-argon=y
+          CONFIG_PACKAGE_luci-theme-argon=y
           # EOF
           
           # IPv6支持:
